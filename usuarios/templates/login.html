@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block 'titulo' %}Login{% endblock 'titulo' %}
+
+{% block 'conteudo' %}
+<div class="container">
+  {% if status == '0' %}
+    <div class="alert alert-success" role="alert">
+    Cadastro realizado com sucesso
+    </div>
+  {% elif status == '1' %}
+    <div class="alert alert-danger" role="alert">
+      Preencha o email
+    </div>
+  {% elif status == '2' %}
+    <div class="alert alert-danger" role="alert">
+      Preencha a senha
+    </div>
+  {% elif status == '3' %}
+    <div class="alert alert-danger" role="alert">
+      Email e/ou Email inválidos
+    </div>
+    {% elif status == '4' %}
+    <div class="alert alert-danger" role="alert">
+      Faça login para acessar o sistema
+    </div>
+  {% endif %}
+
+
+
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md">
+      <h1>Login</h1>
+      <hr>
+      <form action="{% url 'valida_login' %}" method="post">
+        {% csrf_token %}
+        <label >Email</label>
+        <input class="form-control" type="email" name="email" id="email">
+        <br>
+        <label >Senha</label>
+        <input class="form-control" type="password" name="senha" id="senha">
+        <div class="p-2 d-flex justify-content-center">
+          <div class="d-flex-row justify-content-center">
+            <input class="btn btn-warning btn-lg m-2" type="submit" value="Fazer Logiin">
+            <a class="" href="{% url 'cadastro' %}">Não possuo cadastro</a>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+{% endblock 'conteudo' %}
