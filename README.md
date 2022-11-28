@@ -43,5 +43,4 @@
 ```` python manage.py migrate ````
 
 <h2>Execute o projeto</h2>
-
 ````python manage.py runserver````
