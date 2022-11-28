@@ -1,0 +1,40 @@
+SEUS EMPRESTIMOS
+{% extends 'base.html' %}
+{% block 'head' %}
+  <style>
+    .cartao{
+      background-color:#BAF7E5;
+      padding:20px;
+      margin-top: 3%;
+      border-radius: 20px;
+      box-shadow: 4px 4px 8px #538499: 
+    }
+  </style>
+{% endblock 'head' %}
+  <style>
+    .cartao{
+      background-color:#BAF7E5;
+    }
+  </style>
+
+{% block 'conteudo' %}
+  <div class="container">
+    {% for emprestimo in emprestimos %}
+      <div class="cartao">
+        <div class="titulo">
+          <h3>{{emprestimo.livro}}</h3>
+        </div>
+        <div class="body">
+          {{emprestimo.data_emprestimo}}
+        </div>
+        
+        {% if emprestimo.data_devolucao %}
+          <p>{{empresimo.data_data_devolucao}}</p>
+        {% else %}
+          <p>Ainda não devolvido</p>
+        {% endif %}
+        
+      </div>
+    {% endfor %}
+  </div>
+{% endblock 'conteudo' %}

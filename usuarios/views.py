@@ -4,14 +4,17 @@ from django.shortcuts import redirect, render
 from .models import Usuario
 
 
-
 # Create your views here.
 def login(request: HttpRequest):
+    if request.session.get('usuario'):
+        return redirect('/livro/home')
     status = request.GET.get('status')
     return render(request, 'login.html', {'status': status})
 
 
 def cadastro(request):
+    if request.session.get('usuario'):
+        return redirect('/livro/home')
     status = request.GET.get('status')
     return render(request, 'cadastro.html', {'status': status})
 

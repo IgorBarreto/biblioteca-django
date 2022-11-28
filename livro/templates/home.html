@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'conteudo' %}
+
+  <div class="container">
+    {% if status_categoriab %}
+      <div class="alert alert-sucess" role="alert">
+        Categoria cadastrada com sucesso
+      </div>
+    {% endif %}
+    <div class="row">
+      {% for livro in livros %}
+        <div class="col-md">
+          <div class="card" style='width: 18rem;'>
+            <div class="card-body">
+              <img width="100%" src="{{livro.img.url}}" alt="Imagem do livro">
+              <h5 class="card-title">{{livro.nome}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{livro.autor}}</h6>
+              {% if livro.emprestado %}
+                <img src="{% static 'img/livro_nao_emprestado.svg' %}" alt="">
+              {% else %}
+                <img class="color:'blue'" width="50px" height='50px' src="{% static '/img/livro_nao_emprestado.svg' %}" alt="">
+              {% endif %}
+              <br><br>
+              <a href="{% url 'detalhe_livro' livro.id %}" class="btn btn-info ">Acessar</a>
+            </div>
+
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+
+
+
+
+{% endblock 'conteudo' %}
