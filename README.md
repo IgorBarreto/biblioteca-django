@@ -1,7 +1,7 @@
-# Biblioteca-django
+# Biblioteca
 
 ## Descrição
-Este é um simples projeto de gerenciamento de emprestimo de livros com controle de acesso utilizando login.
+Este é um simples projeto de emprestimos de livros com controle de acesso utilizando login.
 ## Ferramentas utilizadas
 * Django
 * Bootstrap
